@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load markup %}
+
+{% block title %}Events in {{ category }}{% endblock %}
+{% block description %}{{ category.description|striptags }}{% endblock %}
+
+{% block body_class %}article-list future{% endblock %}
+
+{% block content %}
+
+    <header id="page-header">    
+        {% if user.is_staff %}
+            <ul class="object-admin-navigation">
+                <li><a href="{% url admin:events_category_change category.id %}">edit</a></li>
+            </ul>
+        {% endif %}
+        
+        <h1>{{ category }}</h1>
+        {% if category.description %}
+            <p>{{ category.description|markdown }}</p>
+        {% endif %}
+    </header>
+
+    {% include "events/_list.html" %}
+
+{% endblock %}

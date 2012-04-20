@@ -1,0 +1,36 @@
+{% load thumbnail %}
+
+{% if featured %}
+<article id="featured-event">
+    <header>
+        <figure>
+            {% thumbnail featured.image "800x200" as im %}
+                <a href="{{ featured.get_absolute_url }}">
+                    <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+                </a>
+            {% endthumbnail %}
+        </figure>
+        
+        <hgroup>
+            <h1><a href="{{ featured.get_absolute_url }}">{{ featured.title }}</a></h1>
+            {% if featured.subtitle %}
+            <h2>{{ featured.subtitle }}</h2>
+            {% endif %}
+        </hgroup>
+    </header>
+    
+    <time class="start" datetime="{{ featured.start|date:"c" }}">{{ featured.start|date }}</time> | {{ featured.location }}
+
+    <div class="summary">{{ featured.html|striptags|truncatewords:64 }}</div>
+</article>
+{% endif %}
+
+<div id="events">
+    {% if future %}
+        {% for object in future %}
+            {% include "events/_event.html" %}
+        {% endfor %}
+    {% else %}
+        <p class="info message">Der er ingen events planlagt lige nu, kom tilbage igen snart.</p>
+    {% endif %}
+</div>

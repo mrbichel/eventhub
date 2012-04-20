@@ -1,0 +1,6 @@
+*.pyc
+test.db
+settings_local.py
+media/
+.DS_Store
+static/.sass-cache/

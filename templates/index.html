@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include "events/_list.html" %}
+
+<footer>
+    <a href="{% url past %}">Se tidligere events</a> 
+</footer>
+
+
+{% endblock %}

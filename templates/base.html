@@ -1,0 +1,69 @@
+{% load event_extras %}
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>{% block title %}Event hub{% endblock %}</title>
+    <meta name="description" content="{% block description %}Events{% endblock %}" />
+
+    <link href="{{ STATIC_URL }}build/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/icon.png" />
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {% block head %}{% endblock %}
+
+    {% include "_analytics.html" %}
+
+</head>
+
+<body class="{% block body_class %}{% endblock %}" id="top" lang="da">
+<header id="site-header" class="container">
+
+    <div class="inner">
+        <div id="logo">
+            <a href="{% url index %}">
+                <img src="{{ STATIC_URL }}images/logo.png">
+            </a>
+        </div>
+        
+        <div id="site-title">
+            <a href="{% url index %}">
+                <h1>Event Hub</h1>
+            </a>
+        </div>
+        
+        <nav>
+            
+            {% get_event_categories as categories %}
+            <ul>
+                {% for c in categories %}
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>  
+</header>
+
+<div id="main">
+
+        <div id="content">
+        {% block content %}
+        {% endblock %}
+        </div>
+</div>
+
+<footer id="site-footer">
+</footer>
+
+</body>
+</html>

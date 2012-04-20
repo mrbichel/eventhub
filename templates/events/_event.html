@@ -1,0 +1,26 @@
+{% load thumbnail %}
+
+<article class="event">
+    <header>
+        
+        <figure>
+            {% thumbnail object.image "400x100" as im %}
+                <a href="{{ object.get_absolute_url }}">
+                    <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+                </a>
+            {% endthumbnail %}
+        </figure>
+        
+        <hgroup>
+            <h1><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h1>
+            {% if object.subtitle %}
+            <h2>{{ object.subtitle }}</h2>
+            {% endif %}
+        </hgroup>
+    </header>
+
+    <time class="start" datetime="{{ object.start|date:"c" }}">{{ object.start|date }} {{ object.start|time }}</time> | {{ object.location }}
+
+    <div class="summary">{{ object.html|striptags|truncatewords:32 }}</div>
+
+</article>

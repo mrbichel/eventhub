@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load markup %}
+{% load thumbnail %}
+
+{% block title %}{{ object.title }}{% if object.subtitle %} - {{ object.subtitle }}{% endif %}{% endblock %}
+{% block description %}{{ object.html|striptags|truncatewords:32 }}{% endblock %}
+
+{% block body_class %}detail{% endblock %}
+
+{% block content %}
+<article id="{{ object.slug }}" class="event detail">
+
+    <header>
+        
+        {% if user.is_staff %}
+            <ul class="object-admin-navigation">
+                <li><a href="{% url admin:events_event_change object.id %}">edit</a></li>
+            </ul>
+        {% endif %}
+        
+        <figure>
+            {% thumbnail object.image "800x400" as im %}
+                <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+            {% endthumbnail %}
+        </figure>
+        
+        <hgroup>
+               <h1>{{ object.title }}</h1>
+
+            {% if object.subtitle %}
+                <h2>{{ object.subtitle }}</h2>
+            {% endif %}
+
+        </hgroup>
+    </header>
+    
+    <time class="start" datetime="{{ object.start|date:"c" }}">{{ object.start|date }} {{ object.start|time }}</time> 
+    til
+    <time class="end" datetime="{{ object.end|date:"c" }}">
+        {% if object.end|date == object.start|date %}
+            {{ object.end|time }}
+        {% else %}        
+            {{ object.end|date }} {{ object.end|time }}
+        {% endif %}
+    </time> 
+     | {{ object.location }}
+    
+    
+    <div class="body">
+        {{ object.html|safe }}
+    </div>
+
+</article>
+{% endblock %}
