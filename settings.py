@@ -23,8 +23,8 @@ if DEVELOPMENT_MODE:
     STATIC_URL = '/static/'
 else:
     DEBUG = False
-    MEDIA_URL = 'http://media.johan.cc/'
-    STATIC_URL = 'http://static.johan.cc/'
+    MEDIA_URL = 'http://media.eventhub.johan.cc/'
+    STATIC_URL = 'http://static.eventhub.johan.cc/'
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
     CACHES = {
         'default': {
