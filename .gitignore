@@ -4,3 +4,4 @@ settings_local.py
 media/
 .DS_Store
 static/.sass-cache/
+eventhub.tmproj
