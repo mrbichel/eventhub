@@ -25,7 +25,7 @@ else:
     DEBUG = False
     MEDIA_URL = 'http://media.eventhub.johan.cc/'
     STATIC_URL = 'http://static.eventhub.johan.cc/'
-    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+    
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
@@ -33,6 +33,7 @@ else:
         }
     }
 
+ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 INTERNAL_IPS = ['127.0.0.1',]
 
 TEMPLATE_DEBUG = DEBUG
@@ -83,6 +84,7 @@ INSTALLED_APPS = (
     'taggit',
     'south',
     'sorl.thumbnail',
+    'grappelli',
     
     # Apps
     'events',

@@ -15,6 +15,9 @@ sitemaps = {
 urlpatterns = patterns('',
     url(r'^a/doc/', include('django.contrib.admindocs.urls')),
     url(r'^a/', include(admin.site.urls)),
+
+    url(r'^grappelli/', include('grappelli.urls')),
+    
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
         {'sitemaps': sitemaps}),
     url(r'^', include('events.urls')),

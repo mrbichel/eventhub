@@ -1,0 +1,66 @@
+/*
+  Typography
+*/
+
+@mixin textscale($size:$font-size, $lines:1, $line:$line) {
+    font-size: $size / $em;
+    line-height: ($line*$lines) / $size * 1em;
+}
+
+body {
+    /* 16px / 24px */
+    font-size: $font-size / $em;
+    line-height: $line / $em;
+    font-family: 'Varela', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: 'Istok Web', sans-serif;
+}
+
+
+
+
+.small, small {
+    /* 13px / 18px */
+    @include textscale(13px, 0.75);
+}
+
+.normal, h3 {
+    /* 16px / 24px */
+    @include textscale(16px);
+}
+
+.large, h2 {
+    /* 18px / 24px */
+    @include textscale(18px);
+}
+
+.larger, h1 {
+    /* 26px / 36px */
+    @include textscale(26px, 1.5);
+}
+
+.huge {
+    /* 42px / 48px */
+    @include textscale(42px, 2);
+    letter-spacing: -1px;
+}
+
+.massive {
+    /* 68px / 72px */
+    @include textscale(68px, 3);
+    letter-spacing: -1px;
+}
+
+.gigantic {
+    /* 110px / 120px */
+    @include textscale(110px, 5);
+    letter-spacing: -1px;
+}
+
+article p {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
