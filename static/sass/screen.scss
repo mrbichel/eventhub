@@ -28,18 +28,73 @@
   a {
     border: none;   
   }
-  img {width: auto; height: ($line*4)/$em;}
+  img {width: auto; 
+    height: ($line*4)/$em;}
 }
+
+
+.event {
+  @include clearfix();
+  
+  h1, h2 {
+    a {
+      color: $title-color;
+      &:hover {
+        color: $title-link-color;
+      }
+    }
+  }
+  
+  
+  header {
+    figure {
+      margin-bottom: ($line/2)/$em;
+      img {
+        @include border-radius(6px);
+        display: block;
+        width: 100%;
+        height: auto;
+        
+      }
+    }
+    
+    hgroup {
+      h1 {
+        text-transform: uppercase;
+      }
+    }
+    
+  }
+  
+  .info {
+    @extend .small;
+    font-style: italic;
+    color: $subtle-color;
+    time, .location {
+      margin-right: 0.5em;
+    }
+    .location {
+      border-left: 1px solid $subtle-color; 
+      padding-left: 0.5em;
+    }
+  }
+  
+  .summary {
+    margin-bottom: ($line/2)/$em;
+  }
+  
+  margin-bottom: $line/$em;
+}
+
+#featured-event {
+  margin-bottom: ($line*2)/$em;
+}
+
 #site-title {
   margin-bottom: $line/$em;
   h1 {
     @extend .larger;
     font-weight: bold;
-    //letter-spacing: -1px;
-    //text-transform: uppercase;
-    .surname, .middlename {
-      font-weight: normal; 
-    }
   }
 }
 #site-header {
@@ -79,186 +134,10 @@ header#page-header {
     }   
 }
 
-#event-list {
-    article {
-        header {
-            a {
-                h1, h2 { color: $title-link-color; }
-                &:hover { h1, h2 { color: darken($title-link-color, 12%); } }
-                
-                h1 {}
-                h2 {@extend .large;
-                    font-weight: normal;}
-            }
-        }
-        
-        time {
-            color: $highlight-color;
-            @extend .small;
-        }
-        
-        .summary {
-           p::first-line {
-               color: darken($text-color, 10%);
-           }
-        }
-        
-        .images {
-            @include clearfix;
-            margin: (($font-size/2) / $em) 0em;
-            height: ($font-size*8) / $em;
-        
-            ul {
-              padding:0;
-              list-style-type: none;
-              li {
-                  width: 100%;
-                  float: left;
-                  overflow: hidden;
-                  img {
-                      width: 100%;
-                      height: auto;
-                  }
-               }
-           }
-        }
-    }
-}
-
-#tags, #years, #months, #archive-navigation {
-  li {
-    display: inline;
-    &.active {
-      a {
-        border:none;
-        font-weight: bold;
-      }
-    }
-  }
-}
-
-#pagination, {
-  @extend .small;
-  ul, ol {
-    margin: 0;
-    padding: 0;
-    li, ol {
-      display: inline;
-      li {
-        margin-right: 2px;
-      }
-      &.active {
-        font-weight: bold;
-        a {
-          border: none;
-          color: $highlight-color;
-        }
-      }
-    }
-    li {
-      margin-right: 12px;
-    }
-    #step-links {
-      border-right: 2px solid $secondary-highlight-color;
-      padding-right: 23px - 12px;
-      margin-right: 23px;
-      display: inline;
-    }
-  }
-}
-
-#article-body {
-    margin-bottom: $line / $em;
-    
-    iframe, video, object, embed, img  {
-        max-width: 100%;
-    }
-    
-    figure {
-        &.full-video, &.full-image {         
-            margin: 0;
-            margin-bottom: $line / $em;
-            
-            iframe, video, object, embed, img {
-                width: 100%;
-                height: ($line*6) / $em;
-            }
-            img {
-                display: block;
-                height: auto;
-            }
-        }
-    }
-    img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-#article-header {
-    margin-bottom: $line / $em;
-    h1 {@extend .huge;}
-    h2 {@extend .larger; font-weight: normal;}
-}
-
-#published {
-    @include split-border('top');
-    @include split-border('bottom');
-
-    position: absolute;
-    top: 0;
-    width: 100%;
-    color: $highlight-color;
-    dd, dt {
-        display: inline;
-        @extend .small;
-    }
-}
-
-#article-footer {
-    @include split-border('top');
-    margin-top: -1px;
-    padding-top: ($line*1) / $em;
-    
-    #updated, #tags, #social {
-        margin-bottom: ($line*1) / $em;
-        dd {
-            color: $subtle-color;
-        }
-        dt {
-            font-weight: bold;
-            @extend .title;
-            @extend .small;
-        }
-    }
-    #updated, #tags {
-        dd {@extend .small;}
-    }
-    
-    #social {
-       
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        min-height: ($line*2)/$em;
-                
-        li {
-            display: inline-block;
-            vertical-align: top;
-            margin-right: ($line/2)/$em;        
-        }
-      }
-    }
-    
-}
-
-
 #wrapper {
     position: relative;
     padding-top: ($line*2) / $em;  
 }
-
 
 #site-footer {
   margin-top: $line / $em;
@@ -316,14 +195,6 @@ header#page-header {
         @include width(6);
     }
     
-    #article-body figure {
-        &.full-video {
-            iframe, object, embed {
-                height: ($line*12) / $em;
-            }
-        }
-    }
-    
     #site-header {
       #logo {
         float: left;
@@ -344,30 +215,6 @@ header#page-header {
       }
     }
     
-    #site-footer { section, nav {
-          @include width(3);
-          float: left;
-                   
-          &#footer-navigation, &#tech {
-              padding: 0 $gutter/$em 0 0;
-          }
-    }}
-    
-    #article-footer {
-        #updated {
-            @include width(2);
-            float: left;  
-        } 
-        #tags {
-            @include width(3);
-            float: left;
-        }
-        #updated {padding: 0 $gutter/$em 0 0;}
-        #social {
-            @include width(6);
-            float: left;
-        }
-    }
 }
 
 /*
@@ -380,39 +227,21 @@ Tablet layout
         @include width(8);
     }
     
-    #article-list article {
-        .summary, hgroup {padding-left: $cols2;}
-        .images {height: ($line*8) / $em;}
-        time {
-            float: left;
-            padding-top: 0.3em;
-        }
-    }
-    
-    #article-header {
-        h1 {@include textscale(68px, 3);}
-        h2 {@include textscale(42px, 2);}
-    }
-    
-    #article-body {
-      padding-left: $cols2;
+    #events .event {
       
       figure {
-          &.full-video, &.full-image {
-            margin-left: -$cols2;
-          }
+        width: $cols3;
+        float: left;
+        padding-right: $gutter/$em;
+        
+      }
+      
+      .summary {
+        padding-left: $cols3 + $gutter/$em;
       }
       
     }
-    #published {
-        top: $line / $em;
-        left: 0;
-        border: none;
-        @include width(2);
-        dd, dt {
-            display: block;
-        }
-    }
+    
     #wrapper {
         padding-top: $line / $em;
         @include split-border(top);

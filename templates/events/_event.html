@@ -4,7 +4,7 @@
     <header>
         
         <figure>
-            {% thumbnail object.image "400x100" as im %}
+            {% thumbnail object.image "600" as im %}
                 <a href="{{ object.get_absolute_url }}">
                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
                 </a>
@@ -18,9 +18,12 @@
             {% endif %}
         </hgroup>
     </header>
-
-    <time class="start" datetime="{{ object.start|date:"c" }}">{{ object.start|date }} {{ object.start|time }}</time> | {{ object.location }}
-
+    
+    <div class="info">
+     <time class="start" datetime="{{ object.start|date:"c" }}">{{ object.start|date }} {{ object.start|time }}</time> 
+     <span class="location">{{ object.location }}</span>
+    </div>
+    
     <div class="summary">{{ object.html|striptags|truncatewords:32 }}</div>
 
 </article>

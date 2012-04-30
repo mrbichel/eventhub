@@ -57,8 +57,8 @@ $link-color: #0067a5;
 $text-color: #2e3436;
 $highlight-color: #ce5c00;
 $secondary-highlight-color: #A7A154;
-$subtle-color: lighten($text-color, 6%);
-$title-color: darken($text-color, 6%);
+$subtle-color: lighten($text-color, 20%);
+$title-color: #000000;
 $split-border-style: dotted;
 
 @mixin pad-text-column($left:$cols2, $right:0) {

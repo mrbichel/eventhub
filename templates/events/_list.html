@@ -1,10 +1,10 @@
 {% load thumbnail %}
 
 {% if featured %}
-<article id="featured-event">
+<article id="featured-event" class="event">
     <header>
         <figure>
-            {% thumbnail featured.image "800x200" as im %}
+            {% thumbnail featured.image "945" as im %}
                 <a href="{{ featured.get_absolute_url }}">
                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
                 </a>
@@ -19,8 +19,12 @@
         </hgroup>
     </header>
     
-    <time class="start" datetime="{{ featured.start|date:"c" }}">{{ featured.start|date }}</time> | {{ featured.location }}
-
+    <div class="info">
+     <time class="start" datetime="{{ featured.start|date:"c" }}">{{ featured.start|date }} kl. {{ featured.start|time }}</time>
+     
+     <span class="location">{{ featured.location }}</span>
+    </div>
+    
     <div class="summary">{{ featured.html|striptags|truncatewords:64 }}</div>
 </article>
 {% endif %}
@@ -31,6 +35,8 @@
             {% include "events/_event.html" %}
         {% endfor %}
     {% else %}
+        {% if not featured %}
         <p class="info message">Der er ingen events planlagt lige nu, kom tilbage igen snart.</p>
+        {% endif %}
     {% endif %}
 </div>

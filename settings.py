@@ -33,6 +33,8 @@ else:
         }
     }
 
+GRAPPELLI_ADMIN_TITLE = "Eventhub"
+
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 INTERNAL_IPS = ['127.0.0.1',]
 
