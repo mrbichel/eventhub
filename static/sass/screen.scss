@@ -260,6 +260,7 @@ Tablet layout
 Widescreen layout
 912-1887 px
 */
+
 @media screen and (min-width: 57em) {
     .container .inner {
         @include width(12);
@@ -269,6 +270,7 @@ Widescreen layout
             padding-left: $cols3;
             @include width(6);
         }
+        
         hgroup {
             padding-left: $cols3;
         }
