@@ -1,5 +1,7 @@
 {% load thumbnail %}
 
+
+<div class="event-list">
 {% if featured %}
 <article id="featured-event" class="event">
     <header>
@@ -25,11 +27,8 @@
      <span class="location">{{ featured.location }}</span>
     </div>
     
-    <div class="summary">{{ featured.html|striptags|truncatewords:64 }}</div>
 </article>
 {% endif %}
-
-<div id="events">
     {% if future %}
         {% for object in future %}
             {% include "events/_event.html" %}

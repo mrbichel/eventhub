@@ -48,10 +48,36 @@ class Category(TagBase):
         return ('events_by_category', (),
             {'slug': self.slug})
 
+
 class TaggedEvent(GenericTaggedItemBase):
     tag = models.ForeignKey(Category, related_name="%(app_label)s_%(class)s_items")
     
+
+class Organizer(models.Model):
+    title = models.CharField('Titel', max_length=200)
+    slug = models.SlugField(max_length=200)
+    description = models.TextField(
+            help_text="A short description about what is categorised under this tag.", 
+            blank=True)
     
+    logo = ImageField(
+        upload_to="images/orgs/",
+        blank=True, null=True,
+    )
+    
+    class Meta:
+        verbose_name = "Organisator"
+        verbose_name_plural = "Organisatorer"
+        
+    def __unicode__(self):
+        return self.title
+            
+    @models.permalink
+    def get_absolute_url(self):
+        return ('events_by_organizer', (),
+            {'slug': self.slug})
+
+
 class Event(models.Model):
     DRAFT_STATUS = 0
     PUBLIC_STATUS = 1
@@ -88,6 +114,8 @@ class Event(models.Model):
     )
     
     categories = TaggableManager(blank=True, through=TaggedEvent)
+    
+    organizer = models.ForeignKey(Organizer, blank=True, null=True)
 
     objects = models.Manager()
     public_objects = PublicManager()

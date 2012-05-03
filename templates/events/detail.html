@@ -49,6 +49,19 @@
     <div class="body">
         {{ object.html|safe }}
     </div>
+    
+    <footer>
+        
+        {% if object.organizer %}
+        Organiseret af <a href="{{ object.organizer.get_absolute_url }}"> {{ object.organizer.title }}</a>.
+        {% endif %}
+        
+        {% for c in object.categories.all %}
+        <a class="category" href="{% url events_by_category c.slug %}" rel="tag" title="Se alle events i {{ c|lower }}">{{ c|lower }}</a>
+        {% empty %}
+            
+        {% endfor %}
+    </footer>
 
 </article>
 {% endblock %}

@@ -227,7 +227,8 @@ Tablet layout
         @include width(8);
     }
     
-    #events .event {
+    
+    .event-list .event {
       
       figure {
         width: $cols3;
@@ -246,13 +247,6 @@ Tablet layout
         padding-top: $line / $em;
         @include split-border(top);
     }
-    #site-footer { section, nav {
-          @include width(4);
-    }}
-    
-    #article-footer {
-        #tags {padding: 0 $gutter/$em 0 0;}
-    }
     
 }
 
@@ -265,33 +259,7 @@ Widescreen layout
     .container .inner {
         @include width(12);
     }  
-    #article-list article {
-        .summary {
-            padding-left: $cols3;
-            @include width(6);
-        }
-        
-        hgroup {
-            padding-left: $cols3;
-        }
-        
-        .images {
-            height: ($line*10) / $em;
-        }
-    }
-    #article-body {
-        padding: 0 $cols3;
-            
-        figure {
-            &.full-video, &.full-image {
-              margin-left: (-$cols3);
-              margin-right: (-$cols3);
-            }
-        }
-    }
-    #site-footer { section, nav {
-          @include width(6);
-    }}
+
 }
 
 

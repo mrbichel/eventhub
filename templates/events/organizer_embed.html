@@ -1,0 +1,14 @@
+{% load markup %}
+
+{% block title %}Events organiseret af {{ organizer }}{% endblock %}
+{% block description %}{{ organizer.description|striptags|truncatewords:32 }}{% endblock %}
+
+{% block body_class %}event-list future{% endblock %}
+
+{% block content %}
+    <h1>{{ organizer.title }}</h1>
+    
+    <h2>Aktuelle events</2>
+    {% include "events/_list.html" %}
+
+{% endblock %}

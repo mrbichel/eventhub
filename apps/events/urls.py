@@ -17,6 +17,16 @@ urlpatterns = patterns('events.views',
         name='events_by_category'
     ),
     
+    url(r'^o/(?P<slug>[^/]+)/$',
+        'by_organizer',
+        name='events_by_organizer'
+    ),
+    
+    url(r'^o/(?P<slug>[^/]+)/embed/$',
+        'organizer_embed',
+        name='organizer_embed'
+    ),
+    
     url(r'^past/$',
         'past',
         name='past'
