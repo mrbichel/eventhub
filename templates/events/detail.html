@@ -34,6 +34,10 @@
         </hgroup>
     </header>
     
+    <div class="content-wrap">
+    
+    <div class="info">
+    
     <time class="start" datetime="{{ object.start|date:"c" }}">{{ object.start|date }} {{ object.start|time }}</time> 
     til
     <time class="end" datetime="{{ object.end|date:"c" }}">
@@ -45,6 +49,7 @@
     </time> 
      | {{ object.location }}
     
+    </div>
     
     <div class="body">
         {{ object.html|safe }}
@@ -62,6 +67,8 @@
             
         {% endfor %}
     </footer>
+    
+    </div>
 
 </article>
 {% endblock %}

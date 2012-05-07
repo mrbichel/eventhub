@@ -9,7 +9,7 @@
 */
 .container .inner {
     @include width(4);
-    padding: 0 ($font-size + 2)/$em;
+    padding: 0 $gutter/$em;
     margin: 0 auto;
     @include pie-clearfix;
 }
@@ -30,6 +30,26 @@
   }
   img {width: auto; 
     height: ($line*4)/$em;}
+}
+
+.event-list {
+  @include clearfix;
+}
+
+
+.event-list .event {
+  h1 {
+    @extend .normal;
+  }
+  h2 {
+    @extend .small;
+  }
+  
+  
+  figure {
+    display: none;
+    
+  }   
 }
 
 
@@ -84,10 +104,6 @@
   }
   
   margin-bottom: $line/$em;
-}
-
-#featured-event {
-  margin-bottom: ($line*2)/$em;
 }
 
 #site-title {
@@ -174,17 +190,7 @@ header#page-header {
 	- the second one zooms in by a factor of (16+2)/16 = 1.125
 */
 
-@media screen and (max-width: 16.875em) {
-	body {
-		font-size: ($font-size - 2) / $em;
-	}
-}
 
-@media screen and (min-width: 32.5em) {
-	body {
-		font-size: ($font-size + 2) / $em;
-	}
-}
 
 /*
     Wide mobile layout 480-767 px
@@ -215,6 +221,25 @@ header#page-header {
       }
     }
     
+    .event-list .event {
+      
+      figure {
+        width: $cols2;
+        display: block;
+        float: left;
+        padding-right: ($gutter/$em)/2;
+        
+      }    
+    }
+    
+    .event.detail {
+
+      figure {
+        width: $cols5;
+      }
+
+    }
+    
 }
 
 /*
@@ -226,28 +251,6 @@ Tablet layout
     .container .inner {
         @include width(8);
     }
-    
-    
-    .event-list .event {
-      
-      figure {
-        width: $cols3;
-        float: left;
-        padding-right: $gutter/$em;
-        
-      }
-      
-      .summary {
-        padding-left: $cols3 + $gutter/$em;
-      }
-      
-    }
-    
-    #wrapper {
-        padding-top: $line / $em;
-        @include split-border(top);
-    }
-    
 }
 
 /*
@@ -258,7 +261,24 @@ Widescreen layout
 @media screen and (min-width: 57em) {
     .container .inner {
         @include width(12);
-    }  
+    }
+    
+    .event-list .event {
+      float: left;
+      width: $cols6 - $gutter/$em;
+      padding-right: $gutter/$em;
+    }
+    
+    .event.detail {
+      
+      figure {float: left;}
+      
+      hgroup, .content-wrap {
+        padding-left: $cols5 + $gutter/$em;
+      }
+
+    }
+     
 
 }
 

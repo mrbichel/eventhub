@@ -1,6 +1,5 @@
 {% load thumbnail %}
 
-
 <div class="event-list">
 {% if featured %}
 <article id="featured-event" class="event">
@@ -22,20 +21,22 @@
     </header>
     
     <div class="info">
-     <time class="start" datetime="{{ featured.start|date:"c" }}">{{ featured.start|date }} kl. {{ featured.start|time }}</time>
+      <time class="start" datetime="{{ featured.start|date:"c" }}">{{ featured.start|date }} kl. {{ featured.start|time }}</time>
      
-     <span class="location">{{ featured.location }}</span>
+      <span class="location">{{ featured.location }}</span>
     </div>
     
 </article>
 {% endif %}
-    {% if future %}
-        {% for object in future %}
-            {% include "events/_event.html" %}
-        {% endfor %}
-    {% else %}
-        {% if not featured %}
-        <p class="info message">Der er ingen events planlagt lige nu, kom tilbage igen snart.</p>
-        {% endif %}
+
+{% if future %}
+    {% for object in future %}
+        {% include "events/_event.html" %}
+    {% endfor %}
+{% else %}
+    {% if not featured %}
+    <p class="info message">Der er ingen events planlagt lige nu, kom tilbage igen snart.</p>
     {% endif %}
+{% endif %}
+
 </div>
