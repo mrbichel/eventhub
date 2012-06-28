@@ -1,14 +1,40 @@
 {% load markup %}
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
 
-{% block title %}Events organiseret af {{ organizer }}{% endblock %}
-{% block description %}{{ organizer.description|striptags|truncatewords:32 }}{% endblock %}
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-{% block body_class %}event-list future{% endblock %}
+    <title>Events organiseret af {{ organizer }}</title>
+    <meta name="description" content="{% block description %}{{ organizer.description|striptags|truncatewords:32 }}{% endblock %}" />
 
-{% block content %}
-    <h1>{{ organizer.title }}</h1>
+    <link href="{{ STATIC_URL }}build/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed" />
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/icon.png" />
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- include analytics tracking  -->
+
+</head>
+<body id="embed">
+
+    <header id="embed-header">
+        <h1>{{ organizer.title }}'s aktuelle events på FairSocialGreen</h1>
+    </header>    
     
-    <h2>Aktuelle events</2>
     {% include "events/_list.html" %}
-
-{% endblock %}
+    
+    <footer id="embed-footer">
+        <p>Se flere events på <a href="http://fairsocialgreen.dk">FairSocialGreen.dk<a>
+    </footer>
+    
+    
+    
+</body>
+</html>

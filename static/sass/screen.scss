@@ -7,6 +7,7 @@
 /*
 	Common
 */
+
 .container .inner {
     @include width(4);
     padding: 0 $gutter/$em;
@@ -24,14 +25,6 @@
     }
 }
 
-#logo {
-  a {
-    border: none;   
-  }
-  img {width: auto; 
-    height: ($line*4)/$em;}
-}
-
 .event-list {
   @include clearfix;
 }
@@ -47,8 +40,10 @@
   
   
   figure {
-    display: none;
-    
+    width: $cols2;
+    display: block;
+    float: left;
+    padding-right: ($gutter/$em)/2;
   }   
 }
 
@@ -107,27 +102,66 @@
 }
 
 #site-title {
-  margin-bottom: $line/$em;
+  margin-bottom: ($line/2)/$em;
   h1 {
-    @extend .larger;
-    font-weight: bold;
+    display: block;
+    width: 346px;
+    height: 60px; 
+    text-indent: -9999px;
+    background: url("../../images/fairsocialgreen_logo.png") no-repeat;
   }
 }
+
+
+.object-admin-navigation {
+  position: absolute;
+  left: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+.organizer-profile-picture {
+  img {
+    @include border-radius(4px);
+    float: left;
+    margin-right: 20px;
+  }
+}
+
+textarea.embed-code {
+  width: 100%;
+}
+
 #site-header {
-  text-align: center;
-  border-bottom: 1px solid;
-  padding-bottom: ($line*2)/$em;
-  margin: ($line*2)/$em 0;
+
+
+  padding-bottom: ($line)/$em;
+  
+  .inner {
+    
+    border-top: 4px solid darken($link-color, 10%);
+    
+    border-bottom: 1px solid lighten($subtle-color, 50%);
+    
+    padding-bottom: ($line/2)/$em;
+    padding-top: ($line)/$em;
+  }
   
   nav {
     ul {
       li {
         display: inline;
         padding: 0;
-        margin: 0 0.5em;
+        margin: 0 0.5em 0 0;
       
         a {
-          border: none;
+          border-bottom: none;
+          @extend .large;
+          color: black;
+          &:hover {
+            color: $link-color;
+          }
         }
       }
     }
@@ -136,9 +170,9 @@
 
 header#page-header {    
     margin-bottom: $line / $em;
-    margin-top: -1px;
-    padding-bottom: $line / $em;
-    @include split-border('bottom');
+    
+    
+      @include pie-clearfix;
     
     p.title-prefix {
         margin: 0;
@@ -146,8 +180,14 @@ header#page-header {
         @extend .large;
     }
     h1 {
-        @extend .huge;
-    }   
+        @extend .large;
+        color: $subtle-color;
+    }
+    
+    .organizer-title {
+      @extend .huge;
+    }
+    
 }
 
 #wrapper {
@@ -157,14 +197,16 @@ header#page-header {
 
 #site-footer {
   margin-top: $line / $em;
-  border-top: 1px solid;
+  
   
   .inner {
+    border-top: 1px solid lighten($subtle-color, 50%);
       padding-top: $line / $em;
   }
   
   ul {
       list-style-type: none;
+      float: left;
       
       li {
           display: inline;
@@ -172,15 +214,45 @@ header#page-header {
       }
   }
   
-  section, nav {
-      margin-bottom: $line / $em;
-      h1 {
-          @extend .small;
-          font-weight: bold;
-      }
-      p {@extend .small;}
+  ul.user-navigation {
+    float: right;
   }
+  
+
 }
+
+/* embed */
+
+body#embed {
+  
+    
+    .event-list {
+      margin-top: 12px;
+      
+      article {
+        margin-bottom: 14px;
+      }
+      
+    }
+  
+  padding: 10px;
+  #embed-header {
+    h1 {
+      color: $subtle-color;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    
+
+    
+    border-bottom: 1px solid lighten($subtle-color, 50%);
+    
+  }
+  #embed-footer {
+    border-top: 1px solid lighten($subtle-color, 50%);
+  }  
+}
+
 
 /*
 	An easy way to zoom your entire layout in or out (as long as it's set in ems).
@@ -199,26 +271,6 @@ header#page-header {
 @media screen and (min-width: 30em) {
     .container .inner {
         @include width(6);
-    }
-    
-    #site-header {
-      #logo {
-        float: left;
-      }
-      
-      text-align: left;
-      #site-title {
-        padding-left: $cols2;
-        margin: ($line/2)/$em 0 0 0;
-      }
-      
-      nav {
-        margin: 0 0 ($line/2)/$em 0;
-        padding-left: $cols2;
-        ul li {
-          margin: 0 1em 0 0;
-        }
-      }
     }
     
     .event-list .event {
@@ -281,5 +333,9 @@ Widescreen layout
      
 
 }
+
+
+
+
 
 

@@ -23,8 +23,8 @@ if DEVELOPMENT_MODE:
     STATIC_URL = '/static/'
 else:
     DEBUG = False
-    MEDIA_URL = 'http://media.eventhub.johan.cc/'
-    STATIC_URL = 'http://static.eventhub.johan.cc/'
+    MEDIA_URL = 'http://media.fairsocialgreen.dk/'
+    STATIC_URL = 'http://static.fairsocialgreen.dk/'
     
     CACHES = {
         'default': {

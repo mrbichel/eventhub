@@ -30,15 +30,10 @@
 <header id="site-header" class="container">
 
     <div class="inner">
-        <div id="logo">
-            <a href="{% url index %}">
-                <img src="{{ STATIC_URL }}images/logo.png">
-            </a>
-        </div>
         
         <div id="site-title">
             <a href="{% url index %}">
-                <h1>Event Hub</h1>
+                <h1>Fair Social Green</h1>
             </a>
         </div>
         
@@ -47,7 +42,7 @@
             {% get_event_categories as categories %}
             <ul>
                 {% for c in categories %}
-                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
                 {% endfor %}
             </ul>
         </nav>
@@ -62,7 +57,23 @@
         </div>
 </div>
 
-<footer id="site-footer">
+<footer id="site-footer" class="container">
+<div class="inner">    
+    <nav>
+    
+    <ul>
+        <li><a href="/om/">Om FairSocialGreen</a></li>
+        <li><a href="/kontakt/">Kontakt</a></li>
+        <li><a href="{% url categories %}">Alle kategorier</a></li>
+    </ul>
+    
+    
+        <ul class="user-navigation">
+            <li><a href="/a">admin</a></li>
+        </ul>
+    </nav>
+    
+</div>
 </footer>
 
 </body>

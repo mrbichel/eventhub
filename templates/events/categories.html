@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load markup %}
+{% load thumbnail %}
+
+{% block title %}Kategorier{% endblock %}
+{% block description %}{% endblock %}
+
+{% block body_class %}categories{% endblock %}
+
+{% block content %}
+    <header>    
+        <h1>Alle kategorier</h1>
+    </header>
+    
+    <ul id="all_categories">
+    {% for c in categories %}
+        <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+    {% endfor %}
+    </ul>
+    
+{% endblock %}

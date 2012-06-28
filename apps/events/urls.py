@@ -27,6 +27,13 @@ urlpatterns = patterns('events.views',
         name='organizer_embed'
     ),
     
+    
+    url(r'^categories/$',
+        'categories',
+        name='categories'
+    ),
+    
+    
     url(r'^past/$',
         'past',
         name='past'

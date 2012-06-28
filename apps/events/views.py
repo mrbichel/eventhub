@@ -61,6 +61,7 @@ def index(request, **kwargs):
     
     return render(request, "index.html", {'future': future, 'featured': featured})
 
+
 def detail(request, year, month, day, slug):
     if request.user.is_staff:
         qs = Event.objects
@@ -68,9 +69,13 @@ def detail(request, year, month, day, slug):
         qs = Event.public_objects
 
     event = get_object_or_404(qs, start__year=year, start__month=month, start__day=day, slug=slug)
-
     return render(request, "events/detail.html", {'object': event})
 
 
-    
+def categories(request, **kwargs):      
+    cats = Category.objects.all()
+    return render(request, "events/categories.html", {'categories': cats})
+
+
+
 

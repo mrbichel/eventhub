@@ -4,6 +4,8 @@
 {% block title %}Events organiseret af {{ organizer }}{% endblock %}
 {% block description %}{{ organizer.description|striptags|truncatewords:32 }}{% endblock %}
 
+{% block body_class %}organizer{% endblock %}
+
 {% block content %}
 
     <header id="page-header">   
@@ -14,13 +16,13 @@
             </ul>
         {% endif %}
         
-        <figure>
+        <figure class="organizer-profile-picture">
             {% thumbnail organizer.logo "200x200" as im %}
                 <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
             {% endthumbnail %}
         </figure>
         
-        <h1>{{ organizer.title }}</h1>
+        <h1 class="organizer-title">{{ organizer.title }}</h1>
         {% if organizer.description %}
             <p>{{ organizer.description|markdown }}</p>
         {% endif %}
@@ -34,8 +36,10 @@
     <aside>
     <h2>Embed events</h2>
     <p>Kopier nedenstående kode for at vise nye events på dit eget website</p>
-    <textarea editable="false">&lt;iframe src=&quot;{{ request.META.HTTP_HOST }}{% url organizer_embed organizer.slug %}&quot; width=&quot;200&quot; height=&quot;150&quot; seamless&gt;&lt;/iframe&gt;
+    
+    <textarea class="embed-code" editable="false">&lt;iframe src=&quot;http://fairsocialgreen.dk{% url organizer_embed organizer.slug %}&quot; width=&quot;200&quot; height=&quot;150&quot; seamless&gt;&lt;/iframe&gt;
     </textarea>
+    
     </aside>
     
     <hr>

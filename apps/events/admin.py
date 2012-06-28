@@ -29,8 +29,7 @@ class EventAdmin(admin.ModelAdmin):
         
         ('Publication', {
            'fields': ('pub_date', 
-                'status', 
-                'featured'),
+                'status'),
            'classes': ('collapse',)
         }),
     )
