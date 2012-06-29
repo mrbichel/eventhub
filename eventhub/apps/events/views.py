@@ -16,8 +16,7 @@ def past(request):
     
     past = Event.public_objects.past()  
     return render(request, "events/past.html", {
-        'past': past})
-    
+        'past': past})  
     
 
 def by_organizer(request, slug):
