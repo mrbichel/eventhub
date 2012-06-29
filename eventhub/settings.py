@@ -41,9 +41,9 @@ INTERNAL_IPS = ['127.0.0.1',]
 TEMPLATE_DEBUG = DEBUG
 
 # Static files
-MEDIA_ROOT = BASE_PATH + '/media'
+MEDIA_ROOT = BASE_PATH + '../media'
 STATICFILES_DIRS = (
-    BASE_PATH + '/static',
+    BASE_PATH + '../static',
 )
 
 TIME_ZONE = 'Europe/Copenhagen'
