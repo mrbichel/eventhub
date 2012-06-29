@@ -2,7 +2,7 @@
 
 from django.db.models.aggregates import Count
 from taggit.views import tagged_object_list
-from events.models import Event, Category, Organizer
+from models import Event, Category, Organizer
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import list_detail, date_based

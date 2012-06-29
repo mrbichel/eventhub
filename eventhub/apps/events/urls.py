@@ -2,7 +2,7 @@
 
 from django.conf import settings
 from django.conf.urls import patterns, url
-from events.feeds import EventFeed
+from feeds import EventFeed
 from django.views.generic.simple import redirect_to
 
 urlpatterns = patterns('events.views',

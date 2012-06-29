@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from events.models import Event, Category, TaggedEvent, Organizer
+from models import Event, Category, TaggedEvent, Organizer
 from taggit.models import Tag
 
 admin.site.unregister(Tag)

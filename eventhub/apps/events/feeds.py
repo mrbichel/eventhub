@@ -2,7 +2,7 @@
 
 from django.utils.feedgenerator import Atom1Feed
 from django.contrib.syndication.views import Feed
-from events.models import Event
+from models import Event
 
 class EventFeed(Feed):
     feed_type = Atom1Feed

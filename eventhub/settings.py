@@ -7,7 +7,7 @@ PRODUCTION_HOSTNAME = "tango"
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'eventhub.urls'
 
 sys.path.append(BASE_PATH + '/apps')
 
