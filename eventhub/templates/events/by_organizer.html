@@ -24,7 +24,7 @@
         
         <h1 class="organizer-title">{{ organizer.title }}</h1>
         {% if organizer.description %}
-            <p>{{ organizer.description|markdown }}</p>
+            {{ organizer.description|markdown }}
         {% endif %}
     
     </header>

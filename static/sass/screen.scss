@@ -121,6 +121,13 @@
   }
 }
 
+
+body.organizer {
+  .event-list {
+    margin-top: ($line/2)/$em;
+  }
+}
+
 .organizer-profile-picture {
   img {
     @include border-radius(4px);
