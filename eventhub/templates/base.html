@@ -39,9 +39,9 @@
         
         <nav>
             
-            {% get_event_categories as categories %}
+            {% get_event_categories as featured_categories %}
             <ul>
-                {% for c in categories %}
+                {% for c in featured_categories %}
                     <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
                 {% endfor %}
             </ul>

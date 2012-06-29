@@ -4,7 +4,7 @@
     <header>
         
         <figure>
-            {% thumbnail object.image "600" as im %}
+            {% thumbnail object.image "160x120" crop="center" as im %}
                 <a href="{{ object.get_absolute_url }}">
                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
                 </a>

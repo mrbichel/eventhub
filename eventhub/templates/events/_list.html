@@ -5,7 +5,7 @@
 <article id="featured-event" class="event">
     <header>
         <figure>
-            {% thumbnail featured.image "945" as im %}
+            {% thumbnail featured.image "945" crop="center" as im %}
                 <a href="{{ featured.get_absolute_url }}">
                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
                 </a>

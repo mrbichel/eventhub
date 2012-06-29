@@ -53,6 +53,14 @@
     
     <div class="body">
         {{ object.html|safe }}
+        
+        
+        {% if object.english_summary %}
+        <h2>In English</h2>
+        <p>{{ object.english_summary }}</p>
+        {% endif %}
+        
+        
     </div>
     
     <footer>

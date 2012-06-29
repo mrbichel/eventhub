@@ -6,6 +6,6 @@ register = template.Library()
 @register.assignment_tag
 def get_event_categories():
     
-    cats = Category.objects.filter(featured=True)
+    cats = Category.objects.filter(featured=False)
     
     return cats
