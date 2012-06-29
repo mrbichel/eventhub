@@ -2,8 +2,6 @@ import os
 import sys
 import site
 
-site.addsitedir('/home/eventhub/.virtualenvs/eventhub/lib/python2.7/site-packages')
-
 os.environ['DJANGO_SETTINGS_MODULE'] = 'eventhub.settings'
 
 # This application object is used by the development server
