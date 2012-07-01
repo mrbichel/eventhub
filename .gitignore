@@ -3,5 +3,6 @@ test.db
 settings_local.py
 media/
 .DS_Store
+.idea/
 static/.sass-cache/
 eventhub.tmproj
