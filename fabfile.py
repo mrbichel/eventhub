@@ -3,7 +3,7 @@ from fabric.api import env, run, prefix, cd, local
 env.user = 'eventhub'
 env.hosts = ['tango.johan.cc']
 env.directory = '/home/eventhub/srv/eventhub'
-env.activate = 'source /home/johan/.virtualenvs/eventhub/bin/activate'
+env.activate = 'source /home/eventhub/.virtualenvs/eventhub/bin/activate'
 
 def deploy():
     local('git push')
