@@ -1,16 +1,18 @@
-psycopg2==2.4.1
 Django==1.4
+Fabric==1.4.2
 Markdown==2.1.1
 PIL==1.1.7
 South==0.7.4
+argparse==1.2.1
+django-grappelli==2.3.8
 django-taggit==0.9.3
 django-taggit-templatetags==0.4.6dev
 django-templatetag-sugar==0.1
+ipython==0.13
+psycopg2==2.4.1
+pycrypto==2.6
+python-memcached==1.48
 sorl-thumbnail==11.12
+ssh==1.7.14
 uWSGI==1.1.2
 wsgiref==0.1.2
-
-
-# Tools
-ipython
-fabric
