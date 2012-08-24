@@ -37,8 +37,7 @@
   h2 {
     @extend .small;
   }
-  
-  
+
   figure {
     width: $cols2;
     display: block;
@@ -101,14 +100,38 @@
   margin-bottom: $line/$em;
 }
 
+#supporters {
+    p {
+        font-weight: bold;
+        font-size: 0.8em;
+    }
+    @include clearfix();
+    margin: ($line)/$em 0;
+
+    ul {
+        list-style: none;
+        li {
+            a {
+                img {
+                    display: block;
+                    width: 110px;
+                    padding: 0 20px 6px 0;
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+
 #site-title {
   margin-bottom: ($line/2)/$em;
   h1 {
     display: block;
-    width: 346px;
-    height: 60px; 
+    //@include width(3);
     text-indent: -9999px;
     background: url("../../images/fairsocialgreen_logo.png") no-repeat;
+    background-size: 260px auto;
   }
 }
 
@@ -177,9 +200,8 @@ textarea.embed-code {
 
 header#page-header {    
     margin-bottom: $line / $em;
-    
-    
-      @include pie-clearfix;
+
+    @include pie-clearfix;
     
     p.title-prefix {
         margin: 0;
@@ -279,7 +301,8 @@ body#embed {
     .container .inner {
         @include width(6);
     }
-    
+
+
     .event-list .event {
       
       figure {
@@ -310,6 +333,9 @@ Tablet layout
     .container .inner {
         @include width(8);
     }
+
+
+
 }
 
 /*
@@ -321,7 +347,39 @@ Widescreen layout
     .container .inner {
         @include width(12);
     }
-    
+
+
+    #site-title {
+        width: $cols8;
+        float: left;
+    }
+
+    #supporters {
+        width: $cols4;
+        float: left;
+        p {
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        @include clearfix();
+        margin: 0;
+
+        ul {
+            list-style: none;
+            li {
+                a {
+                    img {
+                        width: $cols2 - $gutter/$em;
+                        padding-top: ($line/2) / $em;
+                        padding-right: $gutter;
+                    }
+                }
+            }
+        }
+    }
+
+
+
     .event-list .event {
       float: left;
       width: $cols6 - $gutter/$em;

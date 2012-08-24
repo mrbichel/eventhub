@@ -2,7 +2,6 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.sitemaps import FlatPageSitemap
 from events.sitemap import EventSitemap
-from django.views.generic.simple import redirect_to
 from django.conf import settings
 
 admin.autodiscover()
