@@ -6,3 +6,4 @@ media/
 .idea/
 static/.sass-cache/
 eventhub.tmproj
+/node_modules/
