@@ -85,7 +85,8 @@ class Organizer(models.Model):
 
 def content_file_name(instance, filename):
     fileName, fileExtension = os.path.splitext(filename)
-    return '/'.join(['images', "{}{}".format(slugify(fileName), fileExtension)])
+    d = datetime.datetime.now()
+    return '/'.join(['images', d.strftime("%Y"), d.strftime("%m"), "{}{}".format(slugify(fileName), fileExtension)])
 
 class Event(models.Model):
     DRAFT_STATUS = 0
