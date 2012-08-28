@@ -2,12 +2,15 @@
 
 from __future__ import unicode_literals
 
+import os
+
 import datetime
 import markdown
 from django.db import models
 from taggit.managers import TaggableManager
 from taggit.models import GenericTaggedItemBase, TagBase
 from django.conf import settings
+from django.template.defaultfilters import slugify
 
 from sorl.thumbnail import ImageField
 
@@ -80,6 +83,10 @@ class Organizer(models.Model):
             {'slug': self.slug})
 
 
+def content_file_name(instance, filename):
+    fileName, fileExtension = os.path.splitext(filename)
+    return '/'.join(['images', "{}{}".format(slugify(fileName), fileExtension)])
+
 class Event(models.Model):
     DRAFT_STATUS = 0
     PUBLIC_STATUS = 1
@@ -111,7 +118,7 @@ class Event(models.Model):
     featured = models.BooleanField(default=False)
     
     image = ImageField(
-        upload_to="images/%Y/%m/",
+        upload_to=content_file_name,
         blank=True, null=True,
     )
     
